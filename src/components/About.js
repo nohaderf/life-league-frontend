@@ -17,7 +17,7 @@ function About(){
                 <div className="home-div">
                     <img className="home-img-1" src={sketch} alt="Life League"></img>
                     <div className="home-fade-in">
-                        <h1><span className="mountain"><i className="fas fa-icicles"></i> </span>JOIN THE LEAGUE</h1>
+                        <h1><i className="fas fa-icicles fa-rotate-180"></i> JOIN THE LEAGUE</h1>
                         <ul>
                             <li>What are goals if you don't work towards them?</li>
                             <li>It's time to better yourself.</li>

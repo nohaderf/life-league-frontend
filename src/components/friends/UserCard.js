@@ -15,10 +15,10 @@ function UserCard({ user, onAddFriend }){
     }
 
     return (
-        <>
-        <div>{user.username}</div>
-        <button onClick={handleAddFriend}>add friend</button>
-        </>
+        <div className="search-results">
+            <p className="username">{user.username}</p>
+            <button className="add-friend-btn" onClick={handleAddFriend}>add friend</button>
+        </div>
     )
 }
 

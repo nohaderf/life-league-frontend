@@ -1,8 +1,10 @@
 import React, { useState,useEffect } from 'react';
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
+import NewLeague from './NewLeague';
 
 function LeaguesNav(){
     const [leagues, setLeagues] = useState([])
+    const [leagueForm, setLeagueForm] = useState(false)
 
     useEffect(() => {
         fetch(`http://localhost:3000/leagues`)
@@ -20,7 +22,17 @@ function LeaguesNav(){
     //     )
     // )}
 
+    function newLeagueForm(){
+        setLeagueForm(!leagueForm)
+    }
+
+    function handleNewLeague(newLeague){
+        const newLeagueList = leagues.map(league => league.name)
+        setLeagues(newLeagueList)
+    }
+
     return(
+        <>
         <nav className="league-nav">
             <ul>
                 <li>
@@ -39,7 +51,10 @@ function LeaguesNav(){
                     </NavLink>
                 </li> 
             </ul>
+            <span onClick={newLeagueForm} className="league-nav-element"><i className="fas fa-plus-circle"></i> New League</span>
         </nav>
+        { leagueForm ? <NewLeague addNewLeague={handleNewLeague} exitForm={newLeagueForm} /> : null }
+        </>
     )
 }
 

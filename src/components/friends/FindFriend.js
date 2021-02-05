@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import UserCard from './UserCard';
+import UserList from './UserList';
+import Search from './Search';
 
 function FindFriend({ users, onAddFriend }){
     const [search, setSearch] = useState("")
@@ -7,30 +8,12 @@ function FindFriend({ users, onAddFriend }){
     const filterUsers = users.filter(user => {
         return user.username.toLowerCase().includes(search.toLowerCase())
     })
-
-    const usersList = filterUsers.map(user => {
-        if (user.username !== "nohaderf" && user.friend === false) {
-            return <UserCard key={user.id} user={user} onAddFriend={onAddFriend} />
-        }
-        
-    })
     
     return (
         <div className="add-friend-div">
-            <h1>Find User:</h1>
-            <div className="search-bar">
-                    <input
-                        className="search"
-                        type="text"
-                        autoComplete="off"
-                        id="search"
-                        placeholder="  search..."
-                        value={search}
-                        onChange={(e) => setSearch(e.target.value)}
-                    />
-                    <span className="search-icon"> <i className="fas fa-search"></i></span>
-            </div>
-            {usersList}
+            <h1>Find User</h1>
+            <Search search={search} onSearchChange={setSearch} />
+            <UserList filterUsers={filterUsers} onAddFriend={onAddFriend} />
         </div>
     )
 }

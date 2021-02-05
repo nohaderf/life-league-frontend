@@ -10,7 +10,7 @@ function NavBar(){
     // const history = useHistory()
 
     function changeBackground() {
-        if (window.scrollY >= 40) {
+        if (window.scrollY >= 20) {
             setNavBar(true)
             // setSmallLogo(true)
         } else {
@@ -26,6 +26,7 @@ function NavBar(){
             {/* <NavLink exact to="/">
                 <img className={smallLogo ? "logo active" : "logo"} src={logo} alt="Life League" />
             </NavLink> */}
+            {/* <p className="welcome-user">Hello, Freda</p> */}
             <NavLink exact to="/">
                 <div className="nav-bar-element">
                     <img className="logo" src={logo} alt="Life League" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import LeaguesNav from './LeaguesNav';
-import TaskRoster from './TaskRoster';
+import TaskRoster from './tasks/TaskRoster';
 import LeagueDetails from './LeagueDetails';
 
 function LeaguePage(){
@@ -8,13 +8,12 @@ function LeaguePage(){
 
         <div className= "main-div">
             <LeaguesNav />
-            <div className="task-div">
-                <div className="task-list-div">
+            <div className="league-container">
+                <div className="tasks-div">
                     <h1>Task Roster</h1>
-                    Hello World!
                     <TaskRoster />
                 </div>
-                <div className="league-details-div">
+                <div className="details-div">
                     <LeagueDetails />
                 </div>
             </div>
