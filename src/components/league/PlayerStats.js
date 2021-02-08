@@ -1,48 +1,49 @@
 import React, { useState, useEffect } from 'react';
-import UserContainer from '../UserContainer';
 
 function PlayerStats({ user }){
-    const [userTasks, setUserTasks] = useState([])
-    const [userLeague, setUserLeague] = useState()
     const [isLoaded, setIsLoaded] = useState(false)
-    // const [rank, setRank] = useState()
+    const [userPoints, setUserPoints] = useState(0)
+    const [totalPoints, setTotalPoints] = useState([])
+    const [rank, setRank] = useState(0)
 
     const { id, first_name, last_name } = user
-
-    // console.log(user)
-
-    //fetch user tasks
-    //to get rank -> user > UserLeagues > rank
+    const last_initial = last_name.charAt(0)
+    
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}users/${id}`)
         .then(r => r.json())
         .then(userData => {
-            setUserTasks(userData.tasks)
-            setUserLeague(userData.UserLeagues)
+            setRank(userData.UserLeagues.map(league => league.rank))
+            setUserPoints(userData.tasks.map(task => task.points))
             setIsLoaded(true)
         })
     },[])
-    // console.log(userLeague) // an array of objects
 
-    // const pointsArr = userTasks.map(task => task.points)
-    
-    // const totalPoints = pointsArr.reduce((a,b) => a + b )
+    // useEffect(() => {
+    //     if (isLoaded) {
+    //         console.log(userPoints)
+    //         // pointsArr= userData.tasks.map(task => task.points)
+    //         // console.log(pointsArr)
+    //         // setTotalPoints(pointsArr.reduce((a,b) => a + b ))
+    //         // setRank(userLeague.map(league => league.rank) )
+    //     }
+    // }, [isLoaded])
 
-    // const rank = userLeague.map(league => league.rank)
+    useEffect(() => {
+        if (userPoints[0]) {
+            setTotalPoints(userPoints.reduce((a,b) => a + b ))
+        }
+    }, [userPoints])
 
     if (!isLoaded) return <h1>Loading stats...</h1>
 
     return (
-        <div>
-            <table>
-                <tr>
-                    <td>{first_name} {last_name}</td>
-                    {/* <td>{totalPoints}</td> */}
-                    {/* <td>{rank}</td> */}
-                </tr>
-            </table>
-        </div>
+        <tr className="player-stats">
+            <td className="player-names">{first_name} {last_initial}.</td>
+            <td>{totalPoints}</td>
+            <td>{rank}</td>
+        </tr>
     )
 }
 
-export default PlayerStats;
+export default PlayerStats

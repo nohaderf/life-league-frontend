@@ -6,34 +6,61 @@ import Rules from "./Rules"
 import LeaguePage from "./league/LeaguePage";
 import Friends from "./friends/Friends";
 
-// import main_1 from '../Images/main.jpg';
-
-
 function MainContainer(){
     const [users, setUsers] = useState([])
+    const [currentUser, setCurrentUser] = useState(0)
+    const [friends, setFriends] = useState([])
+    const [notFriends, setNotFriends] = useState([])
+    const [leagues, setLeagues] = useState([])
+    const [isUsersLoaded, setIsUsersLoaded] = useState(false)
+    const [isLeaguesLoaded, setIsLeaguesLoaded] = useState(false)
 
     useEffect(() => {
-        fetch(`http://localhost:3000/users/`)
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users/`)
         .then(r => r.json())
-        .then(setUsers)
+        .then(users => {
+            setUsers(users)
+            setFriends(users.filter(user => user.friend === true))
+            setNotFriends(users.filter(user => user.friend === false))
+            setCurrentUser(users.find(user => user.username === "nohaderf"))
+            setIsUsersLoaded(true)
+        })
     }, [])
 
-    const friendsList = users.filter(user => user.friend === true)
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}leagues/`)
+        .then(r => r.json())
+        .then(data => {
+            setLeagues(data)
+            setIsLeaguesLoaded(true)
+        })
+    }, [])
 
-    function handleDeleteFriend(){
-        const trueFriends = users.filter(user => user.friend === true)
-        setUsers(trueFriends)
-    }
+    if (!isUsersLoaded) return <h1>Loading Users...</h1>
+    if (!isLeaguesLoaded) return <h1>Loading League...</h1>
 
-    function handleNewFriend(){
-        const newFriends = users.filter(user => user.friend === true)
-        setUsers(newFriends)
+    function handleNewLeague(newLeague){
+        setLeagues([...leagues, newLeague])
+
+        const userLeagueData = {
+            user_id: currentUser.id,
+            league_id: newLeague.id
+        }
+
+        fetch(`${process.env.REACT_APP_API_BASE_URL}user_leagues`, {
+            method: "POST",
+            headers: {
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(userLeagueData)
+        })
+        .then(r => r.json())
+        .then(console.log)
     }
 
     return (
         <>
         <div className="main-container">
-            {/* <img className="main-img-1" src={main_1} alt="KRUNCH" /> */}
         </div>
 
         <Switch>
@@ -43,15 +70,15 @@ function MainContainer(){
             <Route path="/rules">
                 <Rules />    
             </Route>
-            <Route path="/leagues">
-                <LeaguePage />    
+            <Route path="/leagues/">
+                <LeaguePage leagues={leagues} currentUser={currentUser} friends={friends} addNewLeague={handleNewLeague} />    
             </Route>
             <Route path="/friends">
                 <Friends 
-                    friends={friendsList} 
-                    users={users} 
-                    onAddFriend={handleNewFriend} 
-                    deleteFriend={handleDeleteFriend} 
+                    friends={friends} 
+                    notFriend={notFriends}
+                    // onAddFriend={handleNewFriend} 
+                    // deleteFriend={handleDeleteFriend} 
                 />
             </Route>
            

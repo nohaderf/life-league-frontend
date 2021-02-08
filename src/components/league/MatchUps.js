@@ -1,6 +1,15 @@
 import React from 'react';
+import MatchUpStats from './MatchUpStats';
 
 function MatchUps({ league }){
+
+    // have an array of userObjs from league.users
+    let leaguePlayers = league.users
+
+    // want to randomly select a userObj without repeating from array
+    // function randomMatchUp(){
+
+    // }
     return (
         <>
         <div className="league-header-div">
@@ -9,11 +18,11 @@ function MatchUps({ league }){
             <hr></hr>
         </div>
         <div className="standings-div">
-            <table>
+            <table className="standings-table">
                 <tbody>
                     <tr>
-                    <td>Player1</td>
-                    <td>Player2</td>
+                    <td className="standings-header">Player</td>
+                    <td className="standings-header">Opponent</td>
                 </tr>
                 </tbody>
             </table>

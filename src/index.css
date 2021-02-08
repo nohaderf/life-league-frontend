@@ -505,10 +505,11 @@ textarea:focus, input:focus{
 }
 
 .league-nav span {
-  margin-top: 10px;
-  position: fixed;
+  margin-top: 12px;
+  /* position: fixed; */
+  position: relative;
   margin-right: 40px;
-  right: 0;
+  align-items: right;
 }
 
 /* ul a.active {
@@ -560,10 +561,18 @@ textarea:focus, input:focus{
   text-align: left;
 }
 
+.each-league {
+  margin-bottom: 50px;
+}
+
+.bottom-hr {
+  margin-top: 50px;
+}
+
 .league-details {
   font-size: 1em;
   line-height: 0em;
-  text-transform: lowercase;
+  /* text-transform: lowercase; */
 }
 
 .tasks-div ol li::before {
@@ -592,15 +601,18 @@ textarea:focus, input:focus{
 }
 
 .task-item button {
-  padding: 0px 5px;
+  padding: 5px 5px;
   margin: 15px;
   align-items: center;
   border-radius: 5%;
   font-weight: bold;
   background-color:rgba(58, 58, 58, 0.575);
-
 }
 
+.add-task {
+  margin-top: 25px;
+  text-align: left;
+}
 /* ================================================== */
 /*                 INNER LEAGUE NAV                   */
 /* ================================================== */
@@ -653,6 +665,15 @@ textarea:focus, input:focus{
   border-top-right-radius: 15px; */
 }
 
+.delete-league button {
+  background-color: rgba(58, 58, 58, 0.404);
+  text-transform: uppercase;
+  position: relative;
+  margin-top: -35px;
+  text-align: right;
+  float:right;
+}
+
 /* ================================================== */
 /*                   NEW LEAGUE FORM                  */
 /* ================================================== */
@@ -663,9 +684,10 @@ textarea:focus, input:focus{
   left: 30%;
   background-color: #c7c7c7ee;
   width: 50%;
-  height: 300px;
+  height: 280px;
   border-radius: 20px;
   align-items: left;
+  z-index: 1;
 }
 
 .form {
@@ -705,6 +727,35 @@ button[type="submit"]:active {
   margin-left: 10%;
 }
 
+.add-players {
+  padding-bottom: 25px;
+  margin: 0 15%;
+  max-width: 300px;
+}
+
+.add-players-div {
+  display: flex;
+}
+
+.add-player-league {
+  /* flex: 3; */
+  /* text-align: left;
+  line-height: 1em;
+  display: inline-block; */
+}
+
+.player  {
+  position: relative;
+  display:inline-block;
+  margin: 10px;
+}
+
+.add-player-league button {
+  padding: 5px;
+  font-size: 0.7em;
+}
+
+
 /* ================================================== */
 /*                      STANDINGS                     */
 /* ================================================== */
@@ -724,4 +775,33 @@ hr {
 
 .standings-div table {
   margin-top: 20px;
+}
+
+
+/* ================================================== */
+/*                   PLAYER STATS                     */
+/* ================================================== */
+
+table.standings-table {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
+
+table td.standings-header {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.9em;
+}
+
+
+table.player-stats {
+  table-layout: fixed;
+  width: 300%;
+  text-align: center;
+  font-size: 0.9em;
+}
+
+.player-names {
+  text-align: left;
 }

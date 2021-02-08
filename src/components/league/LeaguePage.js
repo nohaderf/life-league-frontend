@@ -3,18 +3,18 @@ import LeaguesNav from './LeaguesNav';
 import TaskRoster from './tasks/TaskRoster';
 import LeagueDetails from './LeagueDetails';
 
-function LeaguePage(){
-    return(
+function LeaguePage({ leagues, currentUser, friends, addNewLeague }){
 
+    return(
         <div className= "main-div">
-            <LeaguesNav />
+            <LeaguesNav leagues={leagues} addNewLeague={addNewLeague} />
             <div className="league-container">
                 <div className="tasks-div">
-                    <h1>Task Roster</h1>
+                    <h1>Goal Roster</h1>
                     <TaskRoster />
                 </div>
                 <div className="details-div">
-                    <LeagueDetails />
+                    <LeagueDetails leagues={leagues} currentUser={currentUser} friends={friends} />
                 </div>
             </div>
         </div>

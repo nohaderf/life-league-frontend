@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import UserList from './UserList';
 import Search from './Search';
 
-function FindFriend({ users, onAddFriend }){
+function FindFriend({ notFriends, onAddFriend }){
     const [search, setSearch] = useState("")
 
-    const filterUsers = users.filter(user => {
+    const filterUsers = notFriends.filter(user => {
         return user.username.toLowerCase().includes(search.toLowerCase())
     })
     

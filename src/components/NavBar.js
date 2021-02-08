@@ -44,7 +44,7 @@ function NavBar(){
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink exact to="/leagues">
+                    <NavLink to="/leagues">
                         <p className="nav-bar-element">Leagues</p>  
                     </NavLink>
                 </li> 

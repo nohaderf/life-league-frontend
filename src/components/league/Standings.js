@@ -7,8 +7,6 @@ function Standings({ league }){
         return <PlayerStats key={user.id} user={user} />
     })
 
-    console.log(league)
-
     return (
         <>
         <div className="league-header-div">
@@ -17,12 +15,12 @@ function Standings({ league }){
             <hr></hr>
         </div>
         <div className="standings-div">
-            <table>
+            <table className="standings-table">
                 <tbody>
                     <tr>
-                    <td>Player</td>
-                    <td>Total Points</td>
-                    <td>Rank</td>
+                    <td className="standings-header">Player</td>
+                    <td className="standings-header">Total Points</td>
+                    <td className="standings-header">Rank</td>
                 </tr>
                 {playerStats}
                 </tbody>

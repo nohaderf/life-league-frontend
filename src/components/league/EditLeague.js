@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-// import AddPlayers from './AddPlayers';
 
-function NewLeague( { addNewLeague, exitForm }){
-    // const params = useParams()
-    // const history = useHistory()
+function EditLeague({ onEditLeague }){
     const [name, setName] = useState("")
     const [notes, setNotes] = useState("")
     const [duration, setDuration] = useState()
@@ -20,21 +16,21 @@ function NewLeague( { addNewLeague, exitForm }){
         }
 
         fetch(`${process.env.REACT_APP_API_BASE_URL}leagues/`, {
-            method: "POST",
+            method: "PATCH",
             headers: {
                 "Content-Type":"application/json"
             },
             body: JSON.stringify(formData)
         })
         .then(r => r.json())
-        .then(addNewLeague)
+        .then(onEditLeague)
     }
 
     return (
         <div className="form-popup">
             <form className="new-league-form" onSubmit={handleSubmit}>
                 <button onClick={exitForm} className="exit">X</button>
-                <h1>Create A New League</h1>
+                <h1>Edit League Details</h1>
                 <p><label>Name your league:</label>
                 <input 
                     type="text"
@@ -58,14 +54,11 @@ function NewLeague( { addNewLeague, exitForm }){
                     value={notes}
                     onChange={e => setNotes(e.target.value)}
                 /></p>
-                {/* <p><label>Add players:</label></p>
-                <div className="add-players">
-                    <AddPlayers />
-                </div> */}
+
                 <button type="submit">Submit</button>
             </form>
         </div>
     )
 }
 
-export default NewLeague;
+export default EditLeague;
