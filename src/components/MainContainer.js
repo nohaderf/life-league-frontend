@@ -5,6 +5,7 @@ import About from "./About"
 import Rules from "./Rules"
 import LeaguePage from "./league/LeaguePage";
 import Friends from "./friends/Friends";
+import Profile from "./profiles/Profile";
 
 function MainContainer(){
     const [users, setUsers] = useState([])
@@ -35,6 +36,8 @@ function MainContainer(){
             setIsLeaguesLoaded(true)
         })
     }, [])
+
+    console.log(friends)
 
     if (!isUsersLoaded) return <h1>Loading Users...</h1>
     if (!isLeaguesLoaded) return <h1>Loading League...</h1>
@@ -93,7 +96,9 @@ function MainContainer(){
                     deleteFriend={handleDeleteFriend} 
                 />
             </Route>
-           
+            {/* <Route exact path="/users/:id">
+                <Profile />
+            </Route> */}
             {/* <Route path="/profile">
                 <Profile/>
             </Route> */}

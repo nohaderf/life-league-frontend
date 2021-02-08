@@ -16,6 +16,7 @@ function UserCard({ user, onAddFriend }){
 
     return (
         <div className="search-results">
+            <img className="profile-thumbnail" src={user.image_url} alt="username"/>
             <p className="username">{user.username}</p>
             <button className="add-friend-btn" onClick={handleAddFriend}>add friend</button>
         </div>

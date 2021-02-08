@@ -347,10 +347,33 @@ ol li::before {
   margin-left: 10px;
   flex: 2;
   display: relative;
-  top: 50%;
-  left: 50%;
   text-align: center;
   min-height: 100%;
+  align-items: center;
+}
+
+.friends-profile-div p {
+  /* background-color:rgb(85, 85, 85); */
+  display: relative;
+}
+
+.profile-thumbnail {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  object-position: 40% 10%; 
+  border-radius: 37px;
+  vertical-align: middle;
+}
+
+
+.remove-friend {
+  background-color: rgba(58, 58, 58, 0.404);
+  margin-left: 10px;
+  position: relative;
+  float: right;
+  vertical-align: 10%;
+  margin-top: 23px;
 }
 
 .add-friend {
@@ -367,13 +390,19 @@ ol li::before {
   width: 500px;
   flex-wrap: wrap;
   margin: auto;
-
 }
 
 .search-results {
   text-align: left;
 }
-  
+ 
+.search-results button {
+  margin-top: 30px;
+}
+
+.search-results img {
+  margin: 10px;
+}
 
 .username {
   display: inline-block;
@@ -546,7 +575,7 @@ textarea:focus, input:focus{
   padding: 20px;
   /* min-height: 100%; */
   font-size: 1.2em;
-  padding-left: 50px;
+  padding-left: 30px;
   line-height: 2em;
 }
 
@@ -583,6 +612,10 @@ textarea:focus, input:focus{
   margin-right: 0.5rem;
   font-family: 'Oswald', sans-serif;
   line-height: 1; 
+}
+
+.add-task form {
+  width: 175%;
 }
 
 /* ================================================== */

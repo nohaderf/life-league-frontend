@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import FriendCard from './FriendCard';
 import FindFriend from './FindFriend';
+import Profile from '../profiles/Profile';
 
 function Friends({ notFriends, friends, deleteFriend, onAddFriend }){
 
@@ -27,8 +28,9 @@ function Friends({ notFriends, friends, deleteFriend, onAddFriend }){
                 <div className="friends-profile-div">
                     { showForm ? <FindFriend notFriends={notFriends} onAddFriend={onAddFriend} /> : 
                     <p>Select people's names to preview their profile. </p> }
+
+                    <Profile />
                     
-                    {/* <Profile /> */}
                 </div>
             </div>
             

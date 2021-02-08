@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 // import InnerNavBar from './InnerNavBar';
 // import { NavLink } from 'react-router-dom';
 import Standings from './Standings';
-import MatchUps from './MatchUps';
+import Breakdown from './Breakdown';
 import AddPlayers from './AddPlayers';
 
 function LeagueCard({ friends, league }){
@@ -85,7 +85,7 @@ function LeagueCard({ friends, league }){
                         <p onClick={handleShowStandings} className="standings">Standings</p> 
                     </li>
                     <li>
-                        <p onClick={handleShowMatchUps} className="matchups">Matchups</p>   
+                        <p onClick={handleShowMatchUps} className="matchups">Breakdown</p>   
                     </li>
                 </ul>
             </nav>
@@ -96,7 +96,7 @@ function LeagueCard({ friends, league }){
             { showAddPlayers ? <AddPlayers league={league} nonPlayers={nonPlayers} onAddPlayer={handleNewPlayer} /> : null }
              {/* <button className="edit-league" onClick={handleEditLeague} >Edit League</button>
              { showEditLeague ? } */}
-            { showStandings? <Standings league={league} /> : <MatchUps league={league} /> }
+            { showStandings? <Standings league={league} /> : <Breakdown league={league} /> }
             <hr className="bottom-hr"></hr>
         </div>
     )

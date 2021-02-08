@@ -12,9 +12,14 @@ function InnerNavBar(){
             </li>
             <li>
                 <NavLink exact to="/leagues/1">
-                    <p className="matchups">Matchups</p>   
+                    <p className="breakdown">Breakdown</p>   
                 </NavLink>
             </li>
+            {/* <li>
+                <NavLink exact to="/leagues/1">
+                    <p className="matchups">Matchups</p>   
+                </NavLink>
+            </li> */}
         </ul>
     </nav>
     )
