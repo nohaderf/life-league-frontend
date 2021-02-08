@@ -58,6 +58,18 @@ function MainContainer(){
         .then(console.log)
     }
 
+    function handleNewFriend(user){
+        setFriends([...friends, user])
+        setNotFriends(notFriends.filter(notFriend => notFriend.id !== user.id))
+    }
+
+    function handleDeleteFriend(user){
+        setNotFriends([...notFriends, user ]) //adds to find users list
+        setFriends(friends.filter(friend => friend.id !== user.id))
+        console.log(friends)
+
+    }
+
     return (
         <>
         <div className="main-container">
@@ -76,9 +88,9 @@ function MainContainer(){
             <Route path="/friends">
                 <Friends 
                     friends={friends} 
-                    notFriend={notFriends}
-                    // onAddFriend={handleNewFriend} 
-                    // deleteFriend={handleDeleteFriend} 
+                    notFriends={notFriends}
+                    onAddFriend={handleNewFriend} 
+                    deleteFriend={handleDeleteFriend} 
                 />
             </Route>
            
