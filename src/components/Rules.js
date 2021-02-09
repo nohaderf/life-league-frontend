@@ -9,6 +9,7 @@ function Rules(){
             <div className= "rules-div">
                 <h1>TL;DR</h1>
                 <div className="rules-basics">    
+                    <p>It's a game of integrity.</p>
                     <p>Earn <strong>one</strong> point for every logged <strong>30-minute </strong> task dedication.</p>
                     <p>The player with the most points at the end of the league, wins.</p>
 

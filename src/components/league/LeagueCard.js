@@ -5,9 +5,10 @@ import Standings from './Standings';
 import Breakdown from './Breakdown';
 import AddPlayers from './AddPlayers';
 
-function LeagueCard({ friends, league }){
+function LeagueCard({ friends, league, onDeleteClick }){
     const [showStandings, setShowStandings] = useState(true)
     const [showAddPlayers, setShowAddPlayers] = useState(false)
+    const [hidePlayersBtn, setHidePlayersBtn] = useState(false)
     // const [showEditLeague, setShowEditLeague] = useState(false)
     const [nonPlayers, setNonPlayers] = useState([])
     const [players, setPlayers] = useState([])
@@ -52,6 +53,12 @@ function LeagueCard({ friends, league }){
 
     function handleAddPlayers(){
         setShowAddPlayers(!showAddPlayers)
+        setHidePlayersBtn(!hidePlayersBtn)
+    }
+
+    function handleHidePlayers(){
+        setShowAddPlayers(!showAddPlayers)
+        setHidePlayersBtn(!hidePlayersBtn)
     }
 
     function handleNewPlayer(userLeagueData){
@@ -61,9 +68,13 @@ function LeagueCard({ friends, league }){
         setNonPlayers(updateNonPlayer)
     }
 
-    // function handleDelete(){
-
-    // }
+    function handleDelete(){
+        // window.confirm("Are you sure you wish to delete this item?")
+        fetch(`${process.env.REACT_APP_API_BASE_URL}leagues/${league.id}`, {
+            method: "DELETE"
+        })
+        onDeleteClick(league)
+    }
 
     // function handleEditLeague(){
     //     setShowEditLeague(!showEditLeague)
@@ -78,7 +89,7 @@ function LeagueCard({ friends, league }){
     }
 
     return (
-        <div className="each-league">
+        <div id={league.id} className="each-league">
             <nav className="inner-league-nav">
                 <ul>
                     <li>
@@ -92,7 +103,8 @@ function LeagueCard({ friends, league }){
              <h1>{league.name}</h1>
              <p className="league-details">Wager: {league.notes}</p>
              <p>Players in League: {playerList}</p>
-             <button onClick={handleAddPlayers}>Add Players</button>
+             { hidePlayersBtn ? <button onClick={handleHidePlayers}>Hide Players</button> : <button onClick={handleAddPlayers}>Add Players</button> } 
+             <button onClick={handleDelete}>Delete League</button>
             { showAddPlayers ? <AddPlayers league={league} nonPlayers={nonPlayers} onAddPlayer={handleNewPlayer} /> : null }
              {/* <button className="edit-league" onClick={handleEditLeague} >Edit League</button>
              { showEditLeague ? } */}

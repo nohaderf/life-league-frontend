@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 // import AddPlayers from './AddPlayers';
 
-function NewLeague( { addNewLeague, exitForm }){
+function NewLeague( { addNewLeague, exitForm, closeForm }){
     // const params = useParams()
     // const history = useHistory()
     const [name, setName] = useState("")
@@ -28,6 +28,7 @@ function NewLeague( { addNewLeague, exitForm }){
         })
         .then(r => r.json())
         .then(addNewLeague)
+        closeForm()
     }
 
     return (
@@ -44,7 +45,7 @@ function NewLeague( { addNewLeague, exitForm }){
                 />
                 </p>
                 <p><label>League Duration:</label>
-                <select onChange={e => setDuration(parseInt(e.target.value))}>
+                <select onChange={e => setDuration(parseInt(e.target.value))} required="required">
                     <option selected value="null">Choose Duration</option>
                     <option value="1">1 Week</option>
                     <option value="4">4 Weeks</option>

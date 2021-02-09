@@ -37,8 +37,6 @@ function MainContainer(){
         })
     }, [])
 
-    console.log(friends)
-
     if (!isUsersLoaded) return <h1>Loading Users...</h1>
     if (!isLeaguesLoaded) return <h1>Loading League...</h1>
 
@@ -61,6 +59,10 @@ function MainContainer(){
         .then(console.log)
     }
 
+    function handleDeleteLeague(deleteLeague){
+        setLeagues(leagues.filter(league => league.id !== deleteLeague.id))
+    }
+
     function handleNewFriend(user){
         setFriends([...friends, user])
         setNotFriends(notFriends.filter(notFriend => notFriend.id !== user.id))
@@ -69,8 +71,6 @@ function MainContainer(){
     function handleDeleteFriend(user){
         setNotFriends([...notFriends, user ]) //adds to find users list
         setFriends(friends.filter(friend => friend.id !== user.id))
-        console.log(friends)
-
     }
 
     return (
@@ -86,7 +86,12 @@ function MainContainer(){
                 <Rules />    
             </Route>
             <Route path="/leagues/">
-                <LeaguePage leagues={leagues} currentUser={currentUser} friends={friends} addNewLeague={handleNewLeague} />    
+                <LeaguePage 
+                leagues={leagues} 
+                currentUser={currentUser} 
+                friends={friends} 
+                addNewLeague={handleNewLeague} 
+                onDeleteLeague={handleDeleteLeague} />    
             </Route>
             <Route path="/friends">
                 <Friends 

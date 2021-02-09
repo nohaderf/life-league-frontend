@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import NewLeague from './NewLeague';
 
 function LeaguesNav({ leagues, addNewLeague }){
@@ -12,9 +11,9 @@ function LeaguesNav({ leagues, addNewLeague }){
     const leagueLi = leagues.map(league => {
         return (
             <li>
-                <NavLink exact to={`/leagues/${league.id}`}>
+                <a className="anchor" href={`/leagues/#${league.id}`}>
                     <p className="league-nav-element">{league.name}</p> 
-                </NavLink>
+                </a>
             </li>
         )
     })
@@ -27,7 +26,7 @@ function LeaguesNav({ leagues, addNewLeague }){
             </ul>
             <span onClick={newLeagueForm} className="league-nav-element"><i className="fas fa-plus-circle"></i> New League</span>
         </nav>
-        { leagueForm ? <NewLeague addNewLeague={addNewLeague} exitForm={newLeagueForm} /> : null }
+        { leagueForm ? <NewLeague addNewLeague={addNewLeague} exitForm={newLeagueForm} closeForm={setLeagueForm} /> : null }
         </>
     )
 }

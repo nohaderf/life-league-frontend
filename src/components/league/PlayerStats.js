@@ -19,16 +19,6 @@ function PlayerStats({ user }){
         })
     },[])
 
-    // useEffect(() => {
-    //     if (isLoaded) {
-    //         console.log(userPoints)
-    //         // pointsArr= userData.tasks.map(task => task.points)
-    //         // console.log(pointsArr)
-    //         // setTotalPoints(pointsArr.reduce((a,b) => a + b ))
-    //         // setRank(userLeague.map(league => league.rank) )
-    //     }
-    // }, [isLoaded])
-
     useEffect(() => {
         if (userPoints[0]) {
             setTotalPoints(userPoints.reduce((a,b) => a + b ))

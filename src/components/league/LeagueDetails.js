@@ -3,10 +3,10 @@ import React from 'react';
 // import { NavLink } from 'react-router-dom';
 import LeagueCard from './LeagueCard';
 
-function LeagueDetails({ currentUser, friends, leagues }){
+function LeagueDetails({ currentUser, friends, leagues, onDelete }){
 
     const leagueCard = leagues.map(league => {
-        return <LeagueCard key={league.id} league={league} currentUser={currentUser} friends={friends} />
+        return <LeagueCard key={league.id} league={league} currentUser={currentUser} friends={friends} onDeleteClick={onDelete} />
     })
 
     return (

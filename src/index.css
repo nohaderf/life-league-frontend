@@ -463,8 +463,8 @@ textarea:focus, input:focus{
   width: 40px;
   height: 40px;
   border-radius: 100%;
-  background: #e2e2e2b9;
-  color: rgba(58, 58, 58, 0.404);
+  background: #4b4b4bb9;
+  color: rgba(255, 255, 255, 0.918);
   z-index: 1;
 }
 
@@ -559,6 +559,14 @@ textarea:focus, input:focus{
   color: #313131;
 }
 
+.each-league::before {
+  display: block; 
+  content: " "; 
+  margin-top: -285px; 
+  height: 285px; 
+  visibility: hidden; 
+  pointer-events: none;
+}
 
 /* ================================================== */
 /*                    LEAGUE PAGE                     */
@@ -614,10 +622,6 @@ textarea:focus, input:focus{
   line-height: 1; 
 }
 
-.add-task form {
-  width: 175%;
-}
-
 /* ================================================== */
 /*                      TASK ROSTER                   */
 /* ================================================== */
@@ -643,8 +647,23 @@ textarea:focus, input:focus{
 }
 
 .add-task {
-  margin-top: 25px;
+  margin-top: 20px;
   text-align: left;
+}
+
+.add-task form {
+  width: 175%;
+}
+
+.add-task-div {
+  margin-top: 50px;
+}
+
+.task-points {
+  text-align: left;
+  line-height: 0em;
+  margin-top: -10px;
+  font-size: 0.8em;
 }
 /* ================================================== */
 /*                 INNER LEAGUE NAV                   */
