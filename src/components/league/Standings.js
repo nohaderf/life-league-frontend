@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PlayerStats from './PlayerStats';
 
-function Standings({ league }){
+function Standings({ league }){ 
+    const [sortUsers, setSortUsers] = useState([])
 
-    const playerStats = league.users.map (user => {
-        return <PlayerStats key={user.id} user={user} />
+    useEffect(() => {
+        setSortUsers(league.users.sort((a,b) => b.total_points - a.total_points))
+    }, [])
+
+    const playerStats = sortUsers.map (user => {
+        return <PlayerStats key={user.id} user={user} handleRanks={handleRanks} />
     })
+
+    function handleRanks(userObj){
+        setSortUsers(league.users.sort((a,b) => b.total_points - a.total_points))
+    }
+
 
     return (
         <>
@@ -18,11 +28,11 @@ function Standings({ league }){
             <table className="standings-table">
                 <tbody>
                     <tr>
-                    <td className="standings-header">Player</td>
-                    <td className="standings-header">Total Points</td>
-                    <td className="standings-header">Rank</td>
-                </tr>
-                {playerStats}
+                        <th className="standings-header">Rank</th>
+                        <th className="standings-header">Player</th>
+                        <th className="standings-header">Total Points</th>    
+                    </tr>
+                    {playerStats}
                 </tbody>
             </table>
         </div>

@@ -4,7 +4,9 @@ body {
   margin: 0px;
   padding: 0px;
   min-height: 100vh;
-  background-color: #ffffff;
+  background:radial-gradient(ellipse at center, rgb(255, 255, 255) 30%, rgb(255, 255, 251) 65%, #68686873 100%);
+  /* background:radial-gradient(ellipse at center, rgba(255,254,234,1) 0%, rgba(255,254,234,1) 35%, #B7E8EB 100%); */
+  /* background-color: #ffffff; */
   color: #313131;
   font-family: 'Roboto', sans-serif;
   font-size: 0.9em;
@@ -192,11 +194,38 @@ a:active {
   text-align: left;
 }
 
+.home-black-logo {
+  width: 23px;
+  height: 38px;
+  margin-bottom: 5px;
+  opacity: 80%;
+  vertical-align: middle;
+}
+
 .home-img-1 {
   max-width: 100%;
-  animation: fadeIn 5s infinite alternate;
+  /* animation: fadeIn 5s infinite alternate; */
   overflow: hidden;
 }
+
+/* .bg {
+  position: fixed; 
+  top: -50%; 
+  left: -50%; 
+  width: 200%; 
+  height: 200%;
+}
+.bg img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  right: 0; 
+  bottom: 0; 
+  margin: auto; 
+  min-width: 50%;
+  min-height: 50%;
+  opacity: 90%;
+} */
 
 .home-fade-in ul li {
   margin: 10px -50px;
@@ -205,19 +234,23 @@ a:active {
   animation: fadeIn 5s infinite alternate;
 }
 
-.home-fade-in {
+.home-about-div {
   display: block;
-  margin: 100px;
+  /* background:seashell; */
+  padding: 25px;
+  align-items: center;
+  margin: 25px auto auto auto;
+  border-radius: 10px;
+  z-index: 3;
 }
 
 .get-started-btn {
-  margin: 10px -70px;
+  margin: 10px -10px;
   background-color: #2235c1;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 0.8em;
   text-transform: uppercase;
   border-radius: 4px;
-  animation: fadeIn 5s alternate;
 }
 
 .fun-div {
@@ -506,6 +539,24 @@ textarea:focus, input:focus{
   font-size: 1.2em;
  }
 
+ .company-footer {
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
+  position: fixed;
+  right: 1%;
+ }
+
+ .logo-footer {
+   width: 18px;
+   height: 30px;
+   margin-right: 5px;
+   margin-bottom: 5px;
+   vertical-align: middle;
+ }
+
 /* ================================================== */
 /*                     LEAGUE NAV                     */
 /* ================================================== */
@@ -533,20 +584,6 @@ textarea:focus, input:focus{
   left: -20px;
 }
 
-.league-nav span {
-  margin-top: 12px;
-  /* position: fixed; */
-  position: relative;
-  margin-right: 40px;
-  align-items: right;
-}
-
-/* ul a.active {
-  background-color: #2235c1;
-  padding: 10px 10px;
-  color: white;
-} */
-
 .league-nav li:hover {
    background-color: #2235c1;
    padding: 0px 10px;
@@ -566,6 +603,16 @@ textarea:focus, input:focus{
   height: 285px; 
   visibility: hidden; 
   pointer-events: none;
+}
+
+.new-league-btn {
+  margin-top: 12px;
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+  margin-left: 50%;
+  right: 0%;
 }
 
 /* ================================================== */
@@ -671,20 +718,10 @@ textarea:focus, input:focus{
 
 .inner-league-nav {
   list-style: none;
-  /* margin: 0;
-  padding: 0; */
   position: relative;
   margin-top: -35px;
   text-align: right;
   float:right;
-  /* white-space: nowrap; */
-  /* position: fixed;
-  width: 100vh;
-  bottom: 0;
-  right: 6em;
-  line-height: 2em; */
-  /* transform: rotate(90deg);
-  transform-origin: 100% 100%; */
 }
 
 .inner-league-nav li {
@@ -697,13 +734,10 @@ textarea:focus, input:focus{
   background-color: #e7e7e7;
   padding: 5px 10px;
   margin: 5px;
-  /* color: white; */
   border-style: 2px solid;
   border-color:rgba(0, 0, 0, 0.404);
   font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
-  /* border-top-left-radius: 15px;
-  border-top-right-radius: 15px; */
 }
 
 .matchups {
@@ -854,6 +888,36 @@ table.player-stats {
   font-size: 0.9em;
 }
 
-.player-names {
+/* .player-names {
   text-align: left;
+  padding-left: 140px;
+} */
+
+table {
+  width: 100%;
+  counter-reset: row-num -1;
+  border:rgba(58, 58, 58, 0.404);
 }
+table tr {
+  counter-increment: row-num;
+}
+table tr td:first-child::before {
+    content: counter(row-num) " ";
+    margin-left: 48%;
+    margin-right: 50%;
+    margin-top: 10px;
+}
+
+td {
+  width:1000px; 
+}
+
+
+
+
+
+
+
+
+
+

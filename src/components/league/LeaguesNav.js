@@ -10,10 +10,8 @@ function LeaguesNav({ leagues, addNewLeague }){
 
     const leagueLi = leagues.map(league => {
         return (
-            <li>
-                <a className="anchor" href={`/leagues/#${league.id}`}>
-                    <p className="league-nav-element">{league.name}</p> 
-                </a>
+            <li onClick={() => window.location.replace(`/leagues/#${league.id}`)}>
+                    <p className="league-nav-element">{league.name}</p>
             </li>
         )
     })
@@ -24,7 +22,7 @@ function LeaguesNav({ leagues, addNewLeague }){
             <ul>
                 {leagueLi}
             </ul>
-            <span onClick={newLeagueForm} className="league-nav-element"><i className="fas fa-plus-circle"></i> New League</span>
+            <span onClick={newLeagueForm} className="new-league-btn"><i className="fas fa-plus-circle"></i> New League</span>
         </nav>
         { leagueForm ? <NewLeague addNewLeague={addNewLeague} exitForm={newLeagueForm} closeForm={setLeagueForm} /> : null }
         </>

@@ -36,6 +36,10 @@ function LeaguePage({ leagues, currentUser, friends, addNewLeague, onDeleteLeagu
         setTasks(removedTask)
     }
 
+    // function handleAddPoints(newTaskData){
+    //     setPoints(newTaskData.points)
+    // }
+
     return(
         <div className= "main-div">
             <LeaguesNav leagues={leagues} addNewLeague={addNewLeague} />
@@ -44,8 +48,7 @@ function LeaguePage({ leagues, currentUser, friends, addNewLeague, onDeleteLeagu
                     <h1>Goal Roster</h1>
                     <TaskRoster 
                         userId={userId} 
-                        tasks={currentUserTasks} 
-                        // onAddPoints={handleAddPoints} 
+                        tasks={currentUserTasks}
                         handleAddTask={handleAddTask} 
                         handleDeleteTask={handleDeleteTask} />
                 </div>

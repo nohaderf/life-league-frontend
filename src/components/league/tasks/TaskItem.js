@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 
 function TaskItem({ task, deleteTask }){
-    const [points, setPoints] = useState()
+    const [points, setPoints] = useState() 
+    const dispatch =  useDispatch()
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}tasks/${task.id}`)
         .then(r => r.json())
-        .then(taskData => setPoints(taskData.points))
+        .then(taskData => {
+            setPoints(taskData.points)
+        })
     }, [task.id])
 
     function addTime(){
@@ -27,10 +31,12 @@ function TaskItem({ task, deleteTask }){
         })
         .then(r => r.json())
         .then(deleteTask)
+        
     }
 
     function handleAddPoints(newTaskData){
-       setPoints(newTaskData.points + 1)
+        dispatch({type:"Increase"})
+        setPoints(newTaskData.points)
     }
 
     return (

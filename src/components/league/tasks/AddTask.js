@@ -24,7 +24,6 @@ function AddTask({ userId, addTask }){
         .then(r => r.json())
         .then(taskObj => {
             addTask(taskObj)
-            console.log(taskObj)
         })
     }
 
