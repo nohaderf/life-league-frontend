@@ -48,7 +48,7 @@ function TaskItem({ task, deleteTask }){
                 <button onClick={handleDelete} ><i className="far fa-trash-alt"></i></button>
             </div>
         </div>
-        <p className="task-points">Points earned: {points}</p>
+        <p className="task-points">Points earned: { points ? points : 0 }</p>
         </>
     )
 }

@@ -8,58 +8,89 @@ import violin from '../images/violin.jpeg';
 import build from '../images/build.jpg';
 import produce from '../images/produce.jpeg';
 import leap from '../images/leap.jpeg';
+import computer from '../images/lifeLeague_home.jpeg';
+import friends from '../images/life_league_home.jpeg';
+import cycling from '../images/cycling.jpeg'
 
 function About(){
     return (
         <>
         <div className= "main-div">
+
             <div className="info">   
                 <div className="home-div">
-                    <div className="bg">
-                         <img className="home-img-1" src={sketch} alt="Life League"></img>
+                    <div className="fade-in-1">
+                        <img className="home-img-1" src={computer} alt="Life League"></img>
+                        <div className="over-image">
+                            <div className="slogan">
+                                It's time to regain control of your goals.
+                            </div>
+                        </div>
                     </div>
-                    
-                    <div className="home-about-div">
-                        <h1><img className="home-black-logo" src={logo}></img> JOIN THE LEAGUE</h1>
-                        <ul>
-                            <li>What are goals if you don't work towards them?</li>
-                            <li>It's time to better yourself.</li>
-                            <li>Set weekly tasks that work towards your goals.</li>
-                            <li>Compete against friends and family to hold each other accountable.</li>
-                            <li>Ready to finally stick to your resolutions?</li>
+
+                    <div className="fade-in-2">
+                        <img className="home-img-2" src={sketch} alt="Life League"></img>
+                        <div className="over-image2">
+                            <div className="slogan">
+                                We all have a competitive side...
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="fade-in-3">
+                        <img className="home-img-3" src={friends} alt="Life League"></img>
+                        <div className="over-image3">
+                            <div className="slogan">
+                                Challenge your friends and hold each other accountable.
+                            </div>
                             <Link exact to="/rules">
                                 <button className="get-started-btn">Rules</button>
                             </Link>
-                        </ul>
+                            <Link exact to="/signup">
+                                <button className="sign-up-btn">Sign Up</button>
+                            </Link>
+                        </div>
+                    </div> 
+
+
+                    <div className="fun-div">
+                        <div className="fun-card">
+                            <div className="image-div"><img className="image-ex" src={violin} alt="KRUNCH FUN"/></div>
+                            <p className="fun-q">Log the time you've dedicated towards your goals</p>
+                        </div> 
+
+                        <div className="fun-card">
+                            <div className="image-div"><img className="image-ex" src={produce} alt="KRUNCH FUN"/></div>
+                            <p className="fun-q">Earn points</p>
+                        </div> 
+
+                        <div className="fun-card">
+                            <div className="image-div"><img className="image-ex" src={leap} alt="KRUNCH FUN"/></div>
+                            <p className="fun-q">Compete against your friends</p>
+                        </div> 
+
+                        <div className="fun-card">
+                            <div className="image-div"><img className="image-ex" src={build} alt="KRUNCH FUN"/></div>
+                            <p className="fun-q">Player with the most points, win.</p>
+                        </div>
                     </div>
+
+                    <div className="fade-in-4">
+                        <img className="home-img-4" src={cycling} alt="Life League"></img>
+                        <div className="over-image4">
+                            <div className="slogan">
+                                Join today.
+                            </div>
+                            <Link exact to="/signup">
+                                <button className="sign-up-btn">Sign Up</button>
+                            </Link>
+                        </div>
+                    </div> 
+
                 </div>
             </div>
-{/* 
-           <h1>- <i className="far fa-laugh-beam"></i> A League of Accountabilibuddies -</h1>
-           <div className="fun-div">
-                <div className="fun-card">
-                    <div className="image-div"><img className="image-ex" src={violin} alt="KRUNCH FUN"/></div>
-                    <p className="fun-q">What does seven days without exercise make?</p>
-                    <span className="fun-a">One weak!</span>
-                </div> 
-                <div className="fun-card">
-                    <div className="image-div"><img className="image-ex" src={produce} alt="KRUNCH FUN"/></div>
-                    <p className="fun-q">How do you get rid of an obese demon?</p>
-                    <span className="fun-a">You exercise it.</span>
-                </div> 
-                <div className="fun-card">
-                    <div className="image-div"><img className="image-ex" src={leap} alt="KRUNCH FUN"/></div>
-                    <p className="fun-q">How do college students exercise?</p>
-                    <span className="fun-a">By swimming in their debt.</span>
-                </div> 
-                <div className="fun-card">
-                    <div className="image-div"><img className="image-ex" src={build} alt="KRUNCH FUN"/></div>
-                    <p className="fun-q">What is the dairy farmer's favorite exercise?</p>
-                    <span className="fun-a">Calf raises.</span>
-                </div> 
 
-           </div>  */}
-           
+
         </div>
         <ScrollToTop />
         </>

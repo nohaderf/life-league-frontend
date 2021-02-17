@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import PlayerStats from './PlayerStats';
 
-function Standings({ league }){ 
+function Standings({ league, players }){ 
     const [sortUsers, setSortUsers] = useState([])
 
     useEffect(() => {
         setSortUsers(league.users.sort((a,b) => b.total_points - a.total_points))
-    }, [])
+    }, [league.users])
 
     const playerStats = sortUsers.map (user => {
-        return <PlayerStats key={user.id} user={user} handleRanks={handleRanks} />
+        return <PlayerStats key={user.id} user={user} players={players} handleRanks={handleRanks} />
     })
 
     function handleRanks(userObj){

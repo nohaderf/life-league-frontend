@@ -10,10 +10,10 @@ function TaskRoster({ userId, tasks, handleAddTask, handleDeleteTask }){
 
 
     return(
-        <div>
+        <div className="goal-roster">
+            <h1>Goal Roster</h1>
             {taskItem}
             <div className="add-task">
-                 {/* <button>Add Task</button> */}
                 <div className="add-task-div">
                     <h1>Add Goal</h1>
                     <AddTask userId={userId} addTask={handleAddTask} />

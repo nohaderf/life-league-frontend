@@ -1,11 +1,9 @@
 import React from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-function FriendCard({ friend, onDeleteFriend }){
+function FriendCard({ friend, onDeleteFriend, loadProfile }){
 
     const { id, first_name, username, image_url } = friend
-
-    console.log(image_url)
 
     function handleDeleteClick(){
         fetch(`http://localhost:3000/users/${id}`, {
@@ -19,15 +17,20 @@ function FriendCard({ friend, onDeleteFriend }){
         .then(onDeleteFriend)
     }
 
+    function loadProfileClick(){
+        loadProfile(id)
+    }
+
     return (
         <div>
             <p className="friends">
+                <div onClick={loadProfileClick}>
+                    <img className="profile-thumbnail" src={image_url} alt="username"/>
+                    <span> {username} ({first_name})</span>
+                    <button className="remove-friend" onClick={handleDeleteClick}>remove friend</button> 
+                </div>
                 
-                {/* <Link to={`/users/${id}`}> */}
-                <img className="profile-thumbnail" src={image_url} alt="username"/>
-                <span> {username} ({first_name})</span>
-                {/* </Link> */}
-                <button className="remove-friend" onClick={handleDeleteClick}>remove friend</button> 
+               
             </p>
             
         </div>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import NewLeague from './NewLeague';
 
 function LeaguesNav({ leagues, addNewLeague }){
@@ -8,9 +9,14 @@ function LeaguesNav({ leagues, addNewLeague }){
         setLeagueForm(!leagueForm)
     }
 
+
     const leagueLi = leagues.map(league => {
         return (
-            <li onClick={() => window.location.replace(`/leagues/#${league.id}`)}>
+            <li onClick={(e) => {
+                e.preventDefault()
+               window.location.replace(`#${league.id}`)
+                }
+            }>
                     <p className="league-nav-element">{league.name}</p>
             </li>
         )
@@ -22,7 +28,7 @@ function LeaguesNav({ leagues, addNewLeague }){
             <ul>
                 {leagueLi}
             </ul>
-            <span onClick={newLeagueForm} className="new-league-btn"><i className="fas fa-plus-circle"></i> New League</span>
+            <button onClick={newLeagueForm} className="new-league-btn"><i className="fas fa-plus-circle"></i> New League</button>
         </nav>
         { leagueForm ? <NewLeague addNewLeague={addNewLeague} exitForm={newLeagueForm} closeForm={setLeagueForm} /> : null }
         </>

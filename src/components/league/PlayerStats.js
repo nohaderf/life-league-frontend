@@ -5,7 +5,6 @@ function PlayerStats({ user, handleRanks }){
     const [isLoaded, setIsLoaded] = useState(false)
     const [userPoints, setUserPoints] = useState(0)
     const [totalPoints, setTotalPoints] = useState([])
-    const [rank, setRank] = useState()
 
     const taskPoints = useSelector(state => state.taskPoints)
 
@@ -16,7 +15,6 @@ function PlayerStats({ user, handleRanks }){
         fetch(`${process.env.REACT_APP_API_BASE_URL}users/${id}`)
         .then(r => r.json())
         .then(userData => {
-            setRank(userData.UserLeagues.map(userLeague => userLeague.rank))
             setUserPoints(userData.tasks.map(task => task.points))
             setIsLoaded(true)
         })

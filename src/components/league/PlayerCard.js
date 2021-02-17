@@ -16,7 +16,7 @@ function PlayerCard({ nonPlayer, league, onAddPlayer }){
             league_id: leagueId
         }
 
-        fetch(`http://localhost:3000/user_leagues`,{
+        fetch(`${process.env.REACT_APP_API_BASE_URL}user_leagues`,{
             method: "POST",
             headers: {
                 "Content-Type":"application/json"
@@ -29,7 +29,7 @@ function PlayerCard({ nonPlayer, league, onAddPlayer }){
 
     return (
         <div className="add-player-league">
-            <p className="player">{first_name} {last_initial}.</p> <button onClick={handleAddPlayer}>Add to League</button>
+            <p className="player"> <button onClick={handleAddPlayer}><i className="fas fa-plus-circle"></i> {first_name} {last_initial}.</button></p>
         </div>
     )
 }

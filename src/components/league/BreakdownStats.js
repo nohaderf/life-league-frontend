@@ -1,31 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import TaskStats from './TaskStats';
 
-function BreakdownStats({ league }){
+function BreakdownStats({ user }){
+    const [userTasks, setUserTasks] = useState([{}])
 
-    // have an array of userObjs from league.users
-    let leaguePlayers = league.users
+    useEffect(() => {
+        fetch(`${process.env.REACT_APP_API_BASE_URL}users/${user.id}`)
+        .then(r => r.json())
+        .then(userObj => {
+            setUserTasks(userObj.tasks.map(task => task))  
+        })
+    }, [user.id])
 
-    // want to randomly select a userObj without repeating from array
-    // function randomMatchUp(){
+    const taskStats = userTasks.map(task => {
+        return <TaskStats key={task.id} task={task} user={user} />
+    })
 
-    // }
     return (
         <>
-        <div className="league-header-div">
-            <hr></hr>
-            <h1>Match Ups</h1>
-            <hr></hr>
-        </div>
-        <div className="standings-div">
-            <table className="standings-table">
-                <tbody>
-                    <tr>
-                    <td className="standings-header">Player</td>
-                    <td className="standings-header">Opponent</td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
+            {taskStats}
         </>
 
     )

@@ -33,13 +33,16 @@ function NewLeague( { addNewLeague, exitForm, closeForm }){
 
     return (
         <div className="form-popup">
-            <form className="new-league-form" onSubmit={handleSubmit}>
-                <button onClick={exitForm} className="exit">X</button>
-                <h1>Create A New League</h1>
+            <button onClick={exitForm} className="exit">X</button>
+            <h1>Create A New League</h1>
+            <div className="new-league-div">    
+              <form className="new-league-form" onSubmit={handleSubmit}>
+                
                 <p><label>Name your league:</label>
                 <input 
                     type="text"
                     name="name"
+                    placeholder="League"
                     value={name}
                     onChange={e => setName(e.target.value)}
                 />
@@ -56,6 +59,7 @@ function NewLeague( { addNewLeague, exitForm, closeForm }){
                 <textarea
                     type="textarea"
                     name="notes"
+                    placeholder="The stakes are high..."
                     value={notes}
                     onChange={e => setNotes(e.target.value)}
                 /></p>
@@ -64,7 +68,9 @@ function NewLeague( { addNewLeague, exitForm, closeForm }){
                     <AddPlayers />
                 </div> */}
                 <button type="submit">Submit</button>
-            </form>
+            </form>  
+            </div>
+            
         </div>
     )
 }

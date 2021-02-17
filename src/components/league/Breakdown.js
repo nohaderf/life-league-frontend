@@ -9,7 +9,11 @@ function Breakdown({ league }){
     // want to randomly select a userObj without repeating from array
     // function randomMatchUp(){
 
-    // }
+    const playerBreakdown = league.users.map(user => {
+        return <BreakdownStats key={user.id} user={user} />
+    })
+
+
     return (
         <>
         <div className="league-header-div">
@@ -17,14 +21,16 @@ function Breakdown({ league }){
             <h1>Breakdown</h1>
             <hr></hr>
         </div>
-        <div className="standings-div">
-            <table className="standings-table">
+        <div className="breakdown-div">
+            <table className="breakdown-table">
                 <tbody>
                     <tr>
-                    <td className="standings-header">Player</td>
-                    <td className="standings-header">Goal</td>
-                    <td className="standings-header">Points Earned</td>
-                </tr>
+                        <th className="breakdown-header">Player</th>
+                        <th className="breakdown-header">Goal</th>
+                        <th className="breakdown-header">Category</th>
+                        <th className="breakdown-header">Points Earned</th>
+                    </tr>
+                    {playerBreakdown}
                 </tbody>
             </table>
         </div>

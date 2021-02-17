@@ -29,22 +29,24 @@ function AddTask({ userId, addTask }){
 
     return(
         <div className="add-task">
-            <form onSubmit={handleSubmit}>
-                <input
+            <form className="add-task-form" onSubmit={handleSubmit}>
+         
+                  <input
                     type="text"
                     name="name"
                     placeholder="Add a goal"
                     value={name}
                     onChange={e => setName(e.target.value) }
-                />
-                <select onChange={(e) => setCategory(String(e.target.value))}>
-                    <option defaultValue="null">Category</option>
-                    <option value="Health/Fitness">Health/Fitness</option>
-                    <option value="Career/School">Career/School</option>
-                    <option value="Personal/Hobby">Personal/Hobby</option>
-                    <option value="Financial">Financial</option>
-                    <option value="Spiritual">Spiritual</option>
-                </select>
+                  />  
+
+                    <select onChange={(e) => setCategory(String(e.target.value))}>
+                        <option defaultValue="null">Category</option>
+                        <option value="Health/Fitness">Health/Fitness</option>
+                        <option value="Career/School">Career/School</option>
+                        <option value="Personal/Hobby">Personal/Hobby</option>
+                        <option value="Financial">Financial</option>
+                        <option value="Spiritual">Spiritual</option>
+                    </select>
                 <p><button>Add</button></p>
             </form>
         </div>

@@ -12,19 +12,36 @@ body {
   font-size: 0.9em;
 }
 
-/* ::selection {
-  background: orange; 
-} */
+::selection {
+  background: #001effab; 
+}
+
 *, *::before, *::after {
   box-sizing: inherit;
 }
 
 h1 {
   font-size: 1.3em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+}
+
+
+input, textarea, select {
+  font-family: Roboto, sans-serif;
+  border: none;
+  background-color:rgba(255, 255, 255, 0.918);
+  width: 50%;
+  padding: 0.5rem;
+  display: block;
+}
+
+button[type="submit"]:active {
+  background-color: #2fd39f;
 }
 
  /* ================================================== */
- /*                     SCROLL BAR                     */
+ /*                    SCROLL BAR                      */
  /* ================================================== */
 
 
@@ -48,7 +65,7 @@ button {
    border: none;
    outline: none;
    margin: 0px 10px 0px 0px;
-   padding: 7px;
+   padding: 7px 20px;
    color: #FFF;
    border-radius: 4px;
    cursor: pointer;
@@ -56,12 +73,12 @@ button {
  
 a:link {
   text-decoration: none;
-  color: rgb(255, 0, 0);
+  color: #313131;
 }
 
 a:visited {
   text-decoration: none;
-  color:  rgb(255, 0, 0);
+  color:  #313131;
 }
 
 a:hover {
@@ -114,6 +131,16 @@ a:active {
  /*                    NAV BAR                         */
  /* ================================================== */
 
+.nav-bar h1 {
+  margin-top: -10px;
+  font-size: 2em;
+}
+
+.nav-bar h2 {
+  font-size: 1.1em;
+  margin-top: 0px;
+}
+
 .nav-bar {
   display: flex;
   justify-content: center;
@@ -150,12 +177,6 @@ a:active {
   margin: -10px 15px 0px 15px;
 }
 
-/* .nav-bar li:hover {
-   border-color: rgba(58, 58, 58, 0.404);
-   padding: 0px 0px;
-   transition: 1s;
- } */
-
 .nav-bar li a {
   text-decoration: none;
   color: #313131;
@@ -169,6 +190,90 @@ a:active {
 
 } */
 
+.user-thumbnail {
+    width: 30px;
+    height: 30px;
+    object-fit: cover;
+    object-position: 40% 10%; 
+    border-radius: 37px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.drop-down-profile {
+  float: left;
+  overflow: hidden;
+}
+
+.drop-down-profile .drop-btn {
+  cursor: pointer;
+  padding: 5px;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #313131;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  float: none;
+  color: #313131;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  transition: 0.5s;
+}
+
+.dropdown-content a:hover {
+  background-color: #2fd39f;
+  color: white;
+}
+
+.drop-down-profile {
+  display:inline-block;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+  position: fixed;
+  z-index: 3;
+  right: 0;
+  margin: 15px 15px 0 0;
+  top: 0;
+}
+
+.drop-down-profile button {
+  display:inline-block;
+  color: #313131;
+  background-color: transparent;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1em;
+}
+
+.drop-down-profile button:hover {
+    border-color: #2235c1;
+    padding: 5px 7px;
+    border-radius: 0px;
+    height: 20px;
+    border-bottom: solid 2px;
+    border-top: solid 2px;
+}
+
+.drop-down-profile i {
+  margin-left: 5px;
+  opacity: 50%;
+}
+
  /* ================================================== */
  /*                  MAIN CONTAINER                    */
  /* ================================================== */
@@ -177,6 +282,7 @@ a:active {
 .main-div {
   position: relative;
   top: 170px;
+  padding-bottom: 50px;
 }
 
 .main-div h1 {
@@ -189,43 +295,121 @@ a:active {
  /*                    HOME/ABOUT                      */
  /* ================================================== */
 
-.home-div {
-  display: flex;
+.info {
+  position: relative;
+}
+
+ .home-div {
+  /* display: flex; */
   text-align: left;
 }
 
-.home-black-logo {
-  width: 23px;
-  height: 38px;
-  margin-bottom: 5px;
-  opacity: 80%;
-  vertical-align: middle;
+.home-div h1{
+  text-align: left;
+}
+
+.home-div li {
+  list-style-type: none;
 }
 
 .home-img-1 {
-  max-width: 100%;
-  /* animation: fadeIn 5s infinite alternate; */
-  overflow: hidden;
+  max-width: 1000;
+  object-fit: cover;
+  object-position: 20 0;
+  width: 100%;
+  height: 337px;
+  /* height: 600px; */
 }
 
-/* .bg {
-  position: fixed; 
-  top: -50%; 
-  left: -50%; 
-  width: 200%; 
-  height: 200%;
+.home-img-2 {
+  max-width: 1000;
+  object-fit: cover;
+  opacity: 80%;
+  object-position: 0 1px;
+  width: 100%;
+  height: 250px;
+  /* height: 600px; */
 }
-.bg img {
+
+.home-img-3 {
+  max-width: 1000;
+  object-fit: cover;
+  object-position: 100 40;
+  width: 100%;
+  height: 330px;
+  opacity: 85%;
+  /* height: 600px; */
+}
+
+.home-img-4 {
+  max-width: 1000;
+  object-fit: cover;
+  object-position: 0 0;
+  width: 100%;
+  height: 340px;
+  opacity: 85%;
+  /* height: 600px; */
+}
+
+.home-about-div {
+  /* animation: fadeIn 5s infinite alternate; */
+  display: block;
+  padding: 25px;
+  align-items: center;
+  margin: 25px auto auto auto;
+  border-radius: 10px;
   position: absolute; 
-  top: 0; 
-  left: 0; 
-  right: 0; 
-  bottom: 0; 
-  margin: auto; 
-  min-width: 50%;
-  min-height: 50%;
-  opacity: 90%;
-} */
+  z-index: 2;
+}
+
+.over-image {
+  animation: fadeIn 5s;
+  position: absolute;
+  top: 110px;
+  text-align: center;
+  margin-left: 28%;
+  padding: 5px;
+}
+
+.slogan {
+  background-color: rgba(245, 245, 245, 0.616);
+  font-size: 2.5em;
+  padding: 0 10px;
+  font-family: 'Oswald', sans-serif;
+  text-shadow:100px 100px 100px #fff, 10px 10px 10px #ccc;
+  animation: fadeIn 5s ease-in both; 
+}
+
+.over-image button {
+  background-color: #31313185;
+  border-radius: 1px;
+}
+
+.over-image2 {
+  animation-delay: 5s;
+  position: absolute;
+  top: 425px;
+  text-align: center;
+  margin-left: 10%;
+  padding: 5px;
+}
+
+.over-image3 {
+  animation-delay: 10s;
+  position: absolute;
+  top: 725px;
+  text-align: center;
+  margin-left: 25%;
+  padding: 5px;
+}
+
+.over-image4 {
+  position: absolute;
+  bottom: 85px;
+  text-align: center;
+  margin-left: 45%;
+  padding: 5px;
+}
 
 .home-fade-in ul li {
   margin: 10px -50px;
@@ -234,23 +418,22 @@ a:active {
   animation: fadeIn 5s infinite alternate;
 }
 
-.home-about-div {
-  display: block;
-  /* background:seashell; */
-  padding: 25px;
-  align-items: center;
-  margin: 25px auto auto auto;
-  border-radius: 10px;
-  z-index: 3;
-}
-
 .get-started-btn {
-  margin: 10px -10px;
-  background-color: #2235c1;
+  margin: 10px 0 0 -10px;
+  background-color: #666666;
   font-weight: bold;
   font-size: 0.8em;
   text-transform: uppercase;
-  border-radius: 4px;
+  border-radius: 2px;
+}
+
+.sign-up-btn {
+  margin: 10px 5px;
+  background-color: #666666;
+  font-weight: bold;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  border-radius: 2px;
 }
 
 .fun-div {
@@ -258,30 +441,19 @@ a:active {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
-  margin-bottom: 40px;
-  padding-bottom: 100px;
-}
-
-.fun-q {
-  font-size: 1.3em;
-  color: #000000; 
-}
-
-.fun-a {
-  text-align: center;
-  font-size: 1.3em;
 }
 
 .fun-card {
-  background-color: #d4d4d4;
-  width: 300px;
-  height: 350px;
-  margin: 10px;
-  border-radius: 10px;
+  background-color: #303030;
+  color: white;
+  width: 330px;
+  height: 275px;
+  margin: 5px;
+  border-radius: 5px;
 }
 
 .image-div {
-  width: 300px;
+  width: 330px;
   height: 220px;
   overflow: hidden;
   position: relative;
@@ -290,7 +462,7 @@ a:active {
 
 .image-ex {
   background-color: #313131;
-  width: 300px;
+  width: 330px;
   position: absolute;
   left: -1000%;
   right: -1000%;
@@ -301,6 +473,69 @@ a:active {
   min-width: 100%;
 }
 
+@keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-moz-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-webkit-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-o-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+  
+  @-ms-keyframes fadeIn {
+  0% {opacity:0;}
+  100% {opacity:1;}
+  }
+
+ /* ================================================== */
+ /*                       SIGN-UP                      */
+ /* ================================================== */
+
+.sign-up-form-div {
+  background-color: rgb(199, 199, 199);
+  border-radius: 20px;
+  margin: 20px auto 0;
+  width: 40%;
+  text-align: center;
+}
+
+.sign-up-form-div h1 {
+  padding-top: 20px;
+}
+
+ .sign-up-form {
+  text-align: left;
+  margin-left: 18%;
+  padding: 0px 70px 35px;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.sign-up-form input, textarea, select {
+  background-color:rgb(238, 238, 238);
+}
+
+
+p button[type="submit"]{
+  border-radius: 1px;
+}
+
+.small-font {
+  font-size: 0.8em;
+}
 
  /* ================================================== */
  /*                        RULES                       */
@@ -373,6 +608,7 @@ ol li::before {
   background-color: #f1f1f1;
   text-align: left;
   min-height: 100%;
+  width: 30%;
 }
 
 .friends-profile-div {
@@ -386,7 +622,6 @@ ol li::before {
 }
 
 .friends-profile-div p {
-  /* background-color:rgb(85, 85, 85); */
   display: relative;
 }
 
@@ -398,7 +633,6 @@ ol li::before {
   border-radius: 37px;
   vertical-align: middle;
 }
-
 
 .remove-friend {
   background-color: rgba(58, 58, 58, 0.404);
@@ -447,6 +681,101 @@ ol li::before {
 
 
  /* ================================================== */
+ /*                     PROFILE                     */
+ /* ================================================== */
+
+ .profile-div {
+   margin-top: 30px;
+ }
+
+ .profile-div h1 {
+   font-size: 1.8em;
+ }
+
+ .profile-div h2 {
+  font-weight: normal;
+  font-size: 1.1em;
+  line-height: 4px;
+}
+
+ .profile-pic {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  object-position: 40% 10%; 
+  border-radius: 100px;
+  /* vertical-align: middle; */
+ }
+
+ .change-pic {
+   background-color: rgba(245, 245, 245, 0.5);
+   color:rgba(0, 0, 0, 0.404);
+   position: relative;
+   border-radius: 20px;
+   border: 1px solid rgba(0, 0, 0, 0.404);
+   /* height: 10px; */
+   padding: 10px;
+   margin-left: -60px;
+ }
+
+ .profile-div .shift-up {
+   margin-top: -165px;
+ }
+
+ .wow-profile {
+  margin-top: 50px;
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+ }
+
+ .achievement-unlocked {
+  font-size: 1em;
+  text-transform: uppercase;
+  font-family: 'Oswald', sans-serif;
+  margin-top: 30px;
+ }
+
+ .edit-profile {
+   line-height: 8px;
+   font-size: 0.9em;
+ }
+
+ .edit-profile-info {
+   width: 600px;
+   margin: auto;
+   margin-top: 30px;
+   align-items: center;
+   text-align: center;
+ }
+
+ .edit-profile-info button {
+  align-items: center;
+  text-align: center;
+ }
+
+ .change-profile-pic {
+   margin-left: 65px;
+ }
+
+ .profile-pic-change {
+   width: 500px;
+   margin: auto;
+   background-color:rgba(199, 199, 199, 0.76);
+   /* position: fixed;
+   margin-top: 20px;
+   left: 100%;
+   width: 50%;
+   height: 340px;
+   border-radius: 20px;
+   z-index: 2; */
+ }
+
+ .profile-pic-change input {
+   margin: auto;
+ }
+
+ /* ================================================== */
  /*                     SEARCH BAR                     */
  /* ================================================== */
 
@@ -462,7 +791,7 @@ ol li::before {
     margin-bottom: 30px;
     border-radius: 40px;
     height: 30px;
-    width: 200px;
+    width: 100%;
     text-indent: 20px;
     font-family: 'Helvetica', FontAwesome, sans-serif;
     color: #313131;
@@ -606,12 +935,12 @@ textarea:focus, input:focus{
 }
 
 .new-league-btn {
-  margin-top: 12px;
   text-transform: uppercase;
+  background-color: transparent;
   color: white;
   font-family: 'Oswald', sans-serif;
   font-size: 1.2em;
-  margin-left: 50%;
+  margin-left: 0%;
   right: 0%;
 }
 
@@ -654,9 +983,12 @@ textarea:focus, input:focus{
 }
 
 .league-details {
-  font-size: 1em;
-  line-height: 0em;
-  /* text-transform: lowercase; */
+  font-size: 0.8em;
+  line-height: 2px;
+}
+
+.league-details span {
+  font-weight: bolder;
 }
 
 .tasks-div ol li::before {
@@ -693,15 +1025,33 @@ textarea:focus, input:focus{
   background-color:rgba(58, 58, 58, 0.575);
 }
 
+.goal-roster h1{
+  margin-bottom: -5px;
+}
+
 .add-task {
-  margin-top: 20px;
+  margin-top: -10px;
+}
+
+.add-task-form {
+  margin-top: 25px;
   text-align: left;
+  padding-right: 28px;
 }
 
-.add-task form {
-  width: 175%;
-}
+.add-task-form input, textarea, select {
+  margin-bottom: 10px;
 
+  font-family: Roboto, sans-serif;
+  border: none;
+  width: 100%;
+  background-color:rgba(255, 255, 255, 0.918);
+} 
+
+.add-task-form p button {
+  border-radius: 2px;
+  padding: 3px 20px;
+}
 .add-task-div {
   margin-top: 50px;
 }
@@ -731,7 +1081,7 @@ textarea:focus, input:focus{
 
 .standings {
   text-transform: uppercase;
-  background-color: #e7e7e7;
+  background-color: #c5c5c5;
   padding: 5px 10px;
   margin: 5px;
   border-style: 2px solid;
@@ -740,9 +1090,9 @@ textarea:focus, input:focus{
   font-size: 1.2em;
 }
 
-.matchups {
+.breakdown {
   text-transform: uppercase;
-  background-color: #e7e7e7;
+  background-color: #c5c5c5;
   padding: 5px 10px;
   color: #313131;
   font-family: 'Oswald', sans-serif;
@@ -751,13 +1101,18 @@ textarea:focus, input:focus{
   border-top-right-radius: 15px; */
 }
 
-.delete-league button {
-  background-color: rgba(58, 58, 58, 0.404);
+.chart-icon {
   text-transform: uppercase;
-  position: relative;
-  margin-top: -35px;
-  text-align: right;
-  float:right;
+  background-color: #c5c5c5;
+  padding: 5px 10px;
+  border-style: 2px solid;
+  border-color:rgba(0, 0, 0, 0.404);
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.2em;
+}
+
+.chart {
+  margin-top: 25px;
 }
 
 /* ================================================== */
@@ -770,18 +1125,29 @@ textarea:focus, input:focus{
   left: 30%;
   background-color: #c7c7c7ee;
   width: 50%;
-  height: 280px;
+  height: 340px;
   border-radius: 20px;
-  align-items: left;
   z-index: 1;
 }
 
-.form {
-  margin: 0px auto;
-  width: 75%;
-  display:flex;
-  justify-content: space-between;
+.form-popup h1 {
+  margin-left: 10%;
 }
+
+.new-league-form {
+  text-align: left;
+  padding: 20px;
+  width: 80%;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.new-league-div {
+  margin-top: -20px;
+  margin-left: 12%;
+}
+
 
 label {
   margin-right: 10px;
@@ -789,24 +1155,27 @@ label {
   font-size: bold;
 }
 
-input, textarea, select {
+
+.new-league-form input, textarea, select {
   font-family: Roboto, sans-serif;
   border: none;
   background-color:rgba(255, 255, 255, 0.918);
-  width: 50%;
+  width: 100%;
+  margin-bottom: -10px;
   padding: 0.5rem;
+  display: block;
 }
 
-button[type="submit"]:active {
-  background-color: #2fd39f;
+.new-league-form button[type="submit"] {
+  margin-top: 10px;
+  width: 95%;
 }
 
 .exit {
   background-color: transparent;
   color: black;
   float: right;
-  margin-right: 20px;
-  margin-top: -10px;
+  margin-top: 5px;
 }
 
 .new-league-form h1 {
@@ -823,22 +1192,19 @@ button[type="submit"]:active {
   display: flex;
 }
 
-.add-player-league {
-  /* flex: 3; */
-  /* text-align: left;
-  line-height: 1em;
-  display: inline-block; */
-}
 
 .player  {
   position: relative;
   display:inline-block;
-  margin: 10px;
+  /* margin: 10px; */
 }
 
 .add-player-league button {
-  padding: 5px;
-  font-size: 0.7em;
+  background-color: transparent;
+  color: #313131;
+  margin-left: -15px;
+  margin-right: 10px;
+  font-size: 1em;
 }
 
 
@@ -874,50 +1240,79 @@ table.standings-table {
   text-align: center;
 }
 
-table td.standings-header {
-  font-weight: bold;
+table th.standings-header {
   text-transform: uppercase;
-  font-size: 0.9em;
+  background-color: #e7e7e7;
+  padding: 5px 10px;
+  color: #313131;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1em;
 }
 
-
-table.player-stats {
+table tr.player-stats {
   table-layout: fixed;
   width: 300%;
   text-align: center;
-  font-size: 0.9em;
+  font-size: 1em;
+  text-transform: uppercase;
+  background-color: #ffffff;
+  padding: 5px 10px;
+  color: #313131;
+  font-family: 'Oswald', sans-serif;
 }
 
-/* .player-names {
-  text-align: left;
-  padding-left: 140px;
-} */
-
-table {
+.standings-table {
   width: 100%;
   counter-reset: row-num -1;
   border:rgba(58, 58, 58, 0.404);
 }
-table tr {
+.standings-table tr {
   counter-increment: row-num;
 }
-table tr td:first-child::before {
+.standings-table  tr td:first-child::before {
     content: counter(row-num) " ";
     margin-left: 48%;
     margin-right: 50%;
     margin-top: 10px;
 }
 
-td {
-  width:1000px; 
+/* ================================================== */
+/*                   BREAKDOWN STATS                  */
+/* ================================================== */
+
+.breakdown-table {
+  margin-top: 20px;
 }
 
+table th.breakdown-header {
+  text-transform: uppercase;
+  background-color: #3b3b3b;
+  padding: 5px 10px;
+  color: #ffffff;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1em;
+}
 
+table.breakdown-table{
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+}
 
+table.task-stats-tr {
+  table-layout: fixed;
+  width: 100%;
+  text-align: center;
+  font-size: 0.9em;
+  
+}
 
-
-
-
-
-
+.task-stats {
+  text-transform: uppercase;
+  background-color: #e7e7e7;
+  padding: 5px 10px;
+  color: #313131;
+  font-family: 'Oswald', sans-serif;
+  font-size: 1.1em;
+}
 

@@ -1,10 +1,12 @@
 import React, { useContext, useState } from "react"
 import { NavLink , useHistory} from "react-router-dom";
 import logo from '../images/logo.png';
+// import svg from '../images/life_league_logo.svg';
 
-function NavBar(){
+
+function NavBar({ currentUser, login, handleLogout }){
     const [navBar, setNavBar] = useState(false)
-    // const [smallLogo, setSmallLogo] = useState(false)
+    const [showDropDown, setShowDropDown] = useState(false)
 
     // const {loggedIn, toggle} = useContext(LoginContext)
     // const history = useHistory()
@@ -12,50 +14,68 @@ function NavBar(){
     function changeBackground() {
         if (window.scrollY >= 20) {
             setNavBar(true)
-            // setSmallLogo(true)
         } else {
             setNavBar(false)
-            // setSmallLogo(false)
         }
     }
 
     window.addEventListener("scroll", changeBackground)
 
+    function handleDropDown(){
+        setShowDropDown(!showDropDown)
+    }
+
+    window.onclick = function(e) {
+        if (!e.target.matches('.drop-btn')) {
+            setShowDropDown(false)
+        }
+    }
+
     return (
         <nav className={navBar ? "nav-bar active" : "nav-bar"}>
-            {/* <NavLink exact to="/">
-                <img className={smallLogo ? "logo active" : "logo"} src={logo} alt="Life League" />
-            </NavLink> */}
-            {/* <p className="welcome-user">Hello, Freda</p> */}
-            <NavLink exact to="/">
-                <div className="nav-bar-element">
-                    <img className="logo" src={logo} alt="Life League" />
+            <div>
+                <div className="drop-down-profile">
+                <NavLink exact to="/profile"><img className="user-thumbnail" src={currentUser.image_url}></img></NavLink>
+                    <button className="drop-btn" onClick={handleDropDown}>
+                        Hello, {currentUser.first_name}
+                        <i className="fa fa-caret-down"></i>
+                    </button>
+                    { showDropDown ? <div className="dropdown-content">
+                        <NavLink exact to="/profile">Profile</NavLink>
+                        <NavLink exact to="/" onClick={handleLogout}>Logout</NavLink>
+                    </div> : null }
                 </div>
-            </NavLink>
-            <ul>
-                <li>
-                    <NavLink exact to="/">
-                    <p className="nav-bar-element">About</p> 
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink exact to="/rules">
-                        <p className="nav-bar-element">Rules</p>   
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to="/leagues">
-                        <p className="nav-bar-element">Leagues</p>  
-                    </NavLink>
-                </li> 
-                <li>
-                    <NavLink exact to="/friends">
-                    <p className="nav-bar-element">Friends</p>  
-                    </NavLink>
-                </li>
-                {/* {loggedIn ? headerLinksObj() : history.push(`/`)}          */}
-            </ul>
-            {/* <p className="login" onClick={toggle}>{loggedIn ? "LOGOUT" : "LOGIN"}</p> */}
+
+                <NavLink exact to="/">
+                    <div className="nav-bar-element">
+                        <img className="logo" src={logo} alt="Life League" />
+                    </div>
+                </NavLink>
+                <ul>
+                    <li>
+                        <NavLink exact to="/">
+                        <p className="nav-bar-element">About</p> 
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink exact to="/rules">
+                            <p className="nav-bar-element">Rules</p>   
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/leagues">
+                            <p className="nav-bar-element">Leagues</p>  
+                        </NavLink>
+                    </li> 
+                    <li>
+                        <NavLink exact to="/friends">
+                        <p className="nav-bar-element">Friends</p>  
+                        </NavLink>
+                    </li>
+                
+                </ul>
+             
+            </div>
         </nav>
     )
 }
