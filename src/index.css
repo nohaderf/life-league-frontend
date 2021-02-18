@@ -866,6 +866,10 @@ textarea:focus, input:focus{
   font-size: 1.2em;
  }
 
+ .footer-div a {
+  color: white;
+ }
+
  .company-footer {
   text-transform: uppercase;
   color: white;
