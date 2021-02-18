@@ -11,7 +11,7 @@ function Friends({ notFriends, friends, deleteFriend, onAddFriend }){
     const [profileId, setProfileId] = useState(0)
 
     const friendCard = friends.map(friend => {
-        return <FriendCard key={friend.id} friend={friend} onDeleteFriend={deleteFriend} loadProfile={handleLoadProfile} />
+        return <FriendCard key={friend.id} friend={friend} onDeleteFriend={deleteFriend} loadProfile={handleLoadProfile} onRemoveProfile={removeProfile} />
     })
 
     function toggleAddFriend(){
@@ -21,6 +21,10 @@ function Friends({ notFriends, friends, deleteFriend, onAddFriend }){
     function handleLoadProfile(id){
         setProfileId(id)
         setShowProfile(true)
+    }
+
+    function removeProfile(){
+        setShowProfile(false)
     }
 
     return (

@@ -4,7 +4,7 @@ import TaskRoster from './tasks/TaskRoster';
 import LeagueDetails from './LeagueDetails';
 import ScrollToTop from '../ScrollToTop';
 
-function LeaguePage({ leagues, currentUser, friends, addNewLeague, onDeleteLeague }){
+function LeaguePage({ leagues, friends, addNewLeague, onDeleteLeague }){
     const [tasks, setTasks] = useState([])
 
     useEffect(() => {
@@ -36,10 +36,6 @@ function LeaguePage({ leagues, currentUser, friends, addNewLeague, onDeleteLeagu
         setTasks(removedTask)
     }
 
-    // function handleAddPoints(newTaskData){
-    //     setPoints(newTaskData.points)
-    // }
-
     return(
         <div className= "main-div">
             <LeaguesNav leagues={leagues} addNewLeague={addNewLeague} />
@@ -52,7 +48,7 @@ function LeaguePage({ leagues, currentUser, friends, addNewLeague, onDeleteLeagu
                         handleDeleteTask={handleDeleteTask} />
                 </div>
                 <div className="details-div">
-                    <LeagueDetails leagues={leagues} currentUser={currentUser} friends={friends} onDelete={onDeleteLeague} />
+                    <LeagueDetails leagues={leagues} friends={friends} onDelete={onDeleteLeague} />
                 </div>
                 <ScrollToTop />
             </div>

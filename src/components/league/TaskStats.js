@@ -8,7 +8,7 @@ function TaskStats({ task, user }){
             <td className="task-row">{user.first_name}</td>
             <td className="task-row">{name}</td>
             <td className="task-row">{category}</td>
-            <td className="task-row">{points}</td>
+            <td className="task-row">{points ? points : "0" }</td>
         </tr>
     )
 }

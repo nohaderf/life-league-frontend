@@ -1,13 +1,9 @@
 import React from 'react';
-// import { useHistory } from 'react-router-dom';
 
 function PlayerCard({ nonPlayer, league, onAddPlayer }){
-    // const history = useHistory()
     const { id, first_name, last_name } = nonPlayer
     const last_initial = last_name.charAt(0)
     const leagueId = league.id
-
-    // console.log(friendId)
 
     function handleAddPlayer(){
         console.log("clicked")

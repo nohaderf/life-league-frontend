@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import CategoryChart from './CategoryChart';
 import EditProfile from './EditProfile';
 import UploadPic from './UploadPic';
+import ScrollToTop from './ScrollToTop';
 
 function Profile(){
     const [users, setUsers] = useState([])
@@ -16,12 +17,9 @@ function Profile(){
       .then(r => r.json())
       .then(users => {
          setUsers(users)
-        //   setCurrentUser(users.find(user => user.username === "nohaderf"))
           setIsLoaded(true)
-    console.log("loading...")
       })
     }, [])    
-    console.log(users)
 
     useEffect(() => {
         if (users.length > 0) {
@@ -113,6 +111,7 @@ function Profile(){
                 <h1>Track Your Progress</h1>
                 <CategoryChart currentUser={currentUser} />
             </div>
+            <ScrollToTop />
       </div>
     )
 }

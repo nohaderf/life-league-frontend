@@ -46,6 +46,7 @@ function SignUp({ handleNewUser }){
                     name="firstName"
                     value={firstName}
                     onChange={e => setFirstName(e.target.value)}
+                    required
                 />
      
                 <label>Last Name:</label>
@@ -54,6 +55,7 @@ function SignUp({ handleNewUser }){
                     name="lastName"
                     value={lastName}
                     onChange={e => setLastName(e.target.value)}
+                    required
                 />
        
                <label>Username:</label>
@@ -62,6 +64,7 @@ function SignUp({ handleNewUser }){
                     name="username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
+                    required
                 />
            
                <label>Email:</label>
@@ -70,6 +73,7 @@ function SignUp({ handleNewUser }){
                     name="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    required
                 />
             
               <label>Password:</label>
@@ -78,6 +82,7 @@ function SignUp({ handleNewUser }){
                     name="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    required
                 />
                
                <label>Confirm Password:</label>
@@ -86,6 +91,7 @@ function SignUp({ handleNewUser }){
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={e => setConfirmPassword(e.target.value)}
+                    required
                 />
                <p><button type="submit">Submit</button></p> 
                <p class="small-font">Already have an account? <NavLink exact to="/login">Login here</NavLink>.</p>

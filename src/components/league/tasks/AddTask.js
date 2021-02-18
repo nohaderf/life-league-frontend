@@ -25,6 +25,8 @@ function AddTask({ userId, addTask }){
         .then(taskObj => {
             addTask(taskObj)
         })
+        setName("")
+        setCategory(null)
     }
 
     return(

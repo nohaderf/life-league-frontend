@@ -11,25 +11,9 @@ import Login from "./Login";
 import SignUp from "./SignUp";
 
 function MainContainer({ handleLogin, users, currentUser, friends, notFriends, onAddFriend, deleteFriend }){
-    // const [users, setUsers] = useState([])
-    // const [currentUser, setCurrentUser] = useState(0)
-    // const [friends, setFriends] = useState([])
-    // const [notFriends, setNotFriends] = useState([])
     const [leagues, setLeagues] = useState([])
-    // const [isUsersLoaded, setIsUsersLoaded] = useState(false)
-    const [isLeaguesLoaded, setIsLeaguesLoaded] = useState(false)
 
-    // useEffect(() => {
-    //     fetch(`${process.env.REACT_APP_API_BASE_URL}users/`)
-    //     .then(r => r.json())
-    //     .then(users => {
-    //         setUsers(users)
-    //         setFriends(users.filter(user => user.friend === true))
-    //         setNotFriends(users.filter(user => user.friend === false))
-    //         setCurrentUser(users.find(user => user.username === "nohaderf"))
-    //         setIsUsersLoaded(true)
-    //     })
-    // }, [])
+    const [isLeaguesLoaded, setIsLeaguesLoaded] = useState(false)
 
     useEffect(() => {
         fetch(`${process.env.REACT_APP_API_BASE_URL}leagues/`)
@@ -40,7 +24,6 @@ function MainContainer({ handleLogin, users, currentUser, friends, notFriends, o
         })
     }, [])
 
-    // if (!isUsersLoaded) return <h1>Loading Users...</h1>
     if (!isLeaguesLoaded) return <h1>Loading League...</h1>
 
     function handleNewLeague(newLeague){
@@ -59,22 +42,11 @@ function MainContainer({ handleLogin, users, currentUser, friends, notFriends, o
             body: JSON.stringify(userLeagueData)
         })
         .then(r => r.json())
-        .then(console.log)
     }
 
     function handleDeleteLeague(deleteLeague){
         setLeagues(leagues.filter(league => league.id !== deleteLeague.id))
     }
-
-    // function handleNewFriend(user){
-    //     setFriends([...friends, user])
-    //     setNotFriends(notFriends.filter(notFriend => notFriend.id !== user.id))
-    // }
-
-    // function handleDeleteFriend(user){
-    //     setNotFriends([...notFriends, user ]) //adds to find users list
-    //     setFriends(friends.filter(friend => friend.id !== user.id))
-    // }
 
     return (
         <>
@@ -90,11 +62,11 @@ function MainContainer({ handleLogin, users, currentUser, friends, notFriends, o
             </Route>
             <Route path="/leagues/">
                 <LeaguePage 
-                leagues={leagues} 
-                currentUser={currentUser} 
-                friends={friends} 
-                addNewLeague={handleNewLeague} 
-                onDeleteLeague={handleDeleteLeague} />    
+                    leagues={leagues} 
+                    friends={friends} 
+                    addNewLeague={handleNewLeague} 
+                    onDeleteLeague={handleDeleteLeague}
+                />    
             </Route>
             <Route path="/friends">
                 <Friends 

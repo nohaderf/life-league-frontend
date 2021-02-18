@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-function FriendCard({ friend, onDeleteFriend, loadProfile }){
+function FriendCard({ friend, onDeleteFriend, loadProfile, onRemoveProfile }){
 
     const { id, first_name, username, image_url } = friend
 
@@ -14,7 +13,10 @@ function FriendCard({ friend, onDeleteFriend, loadProfile }){
             body: JSON.stringify({friend:false})
         })
         .then(r => r.json())
-        .then(onDeleteFriend)
+        .then(data => {
+            onDeleteFriend(data)
+            onRemoveProfile(data)
+        })
     }
 
     function loadProfileClick(){

@@ -5,7 +5,7 @@ const initialState = {
 function rootReducer(state = initialState, action){
     switch(action.type){
         case ('Increase'): 
-            return  { taskPoints: state.taskPoints + 1}
+            return  { taskPoints: state.taskPoints + 1};
         default:
             return state;
     }

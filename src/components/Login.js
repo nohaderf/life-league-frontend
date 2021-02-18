@@ -22,6 +22,7 @@ function Login({ handleLogin }){
                     name="username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
+                    required
                 />
                 </p>
                 <p><label>Password:</label>
@@ -30,6 +31,7 @@ function Login({ handleLogin }){
                     name="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    required
                 />
                 </p>
                 <Link exact to="/">

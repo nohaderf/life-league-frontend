@@ -18,7 +18,6 @@ function UsersProfile({ id }){
 
     const { username, first_name, last_name, total_points, image_url } = user
 
-    // if (total_points > 30)
     return (
         <div className="main-div">
             <div className="profile-div">
@@ -34,24 +33,23 @@ function UsersProfile({ id }){
                         </div> 
                     }
 
-                    { total_points > 30 ? 
+                    { total_points > 20 ? 
                         <div>
-                            <h2 className="achievement-unlocked">Achievements:</h2>
+                            <h1 className="achievement-unlocked">Achievements:</h1>
+                            <p>Keeping working on your goals to unlock more achievements!</p>
                             <h2 className="achievement-unlocked"><i className="fas fa-award"></i> GOAL TREKKER</h2>
                         </div> : null 
                     }
                     
-                    { total_points > 50 ? 
+                    { total_points > 30 ? 
                         <div>
-                            <h2 className="achievement-unlocked">Achievements:</h2>
-                            <h1><i className="fas fa-medal"></i> TRULY SKILLFUL</h1>
+                            <h2  className="achievement-unlocked"><i className="fas fa-medal"></i> TRULY SKILLFUL</h2>
                         </div> : null
                     }
 
                     {  total_points > 100 ? 
                         <div>
-                            <h2 className="achievement-unlocked">Achievements:</h2>
-                            <h1><i className="fas fa-trophy"></i>TRUE MASTER</h1>
+                            <h2 className="achievement-unlocked"><i className="fas fa-trophy"></i>TRUE MASTER</h2>
                         </div> : null
                     }       
                     

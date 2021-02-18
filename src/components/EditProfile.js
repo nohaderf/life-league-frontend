@@ -43,6 +43,7 @@ function EditProfile({ id, handleEditProfile }){
                 name="firstName"
                 value={firstName}
                 onChange={e => setFirstName(e.target.value)}
+                required
             />
 
             <label>Last Name:</label>
@@ -51,6 +52,7 @@ function EditProfile({ id, handleEditProfile }){
                 name="lastName"
                 value={lastName}
                 onChange={e => setLastName(e.target.value)}
+                required
             />
 
             <label>Username:</label>
@@ -59,6 +61,7 @@ function EditProfile({ id, handleEditProfile }){
                     name="username"
                     value={username}
                     onChange={e => setUsername(e.target.value)}
+                    required
                 />
         
             <label>Email:</label>
@@ -67,6 +70,7 @@ function EditProfile({ id, handleEditProfile }){
                     name="email"
                     value={email}
                     onChange={e => setEmail(e.target.value)}
+                    required
                 />
             
             <label>Password:</label>
@@ -75,6 +79,7 @@ function EditProfile({ id, handleEditProfile }){
                     name="password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
+                    required
                 />
             
                 <label>Confirm Password:</label>
@@ -83,6 +88,7 @@ function EditProfile({ id, handleEditProfile }){
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={e => setConfirmPassword(e.target.value)}
+                    required
                 />
                 <p><button type="submit">Submit</button></p> 
             </form>

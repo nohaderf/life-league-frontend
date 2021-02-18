@@ -49,7 +49,6 @@ function PlayerStats({ user, handleRanks }){
     return (
         <tr className="player-stats">
             <td>    </td>
-            {/* <td>{rank}</td> */}
             <td className="player-names">{first_name} {last_initial}. </td>
             <td>{parseInt(totalPoints)}</td>
         </tr>

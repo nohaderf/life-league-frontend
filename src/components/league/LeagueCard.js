@@ -89,10 +89,10 @@ function LeagueCard({ friends, league, onDeleteClick }){
                         <p onClick={handleShowBreakdown} className="breakdown">Breakdown</p>   
                     </li>
                 </ul>
-            </nav>
+            </nav> 
              <h1>{league.name}</h1>
              <p className="league-details"><span>Wager:</span> {league.notes}</p>
-             <p className="league-details"><span>Players in League:</span> {playersList}</p>
+             <p className="league-details"><span>Players in League:</span> { playersList ? playersList : "Freda"} </p>
              { hidePlayersBtn ? <button onClick={handleHidePlayers}>Hide Players</button> : <button onClick={handleAddPlayers}>Add Players</button> } 
              <button onClick={handleDelete}>Delete League</button>
             { showAddPlayers ? <AddPlayers league={league} nonPlayers={nonPlayers} onAddPlayer={handleNewPlayer} /> : null }

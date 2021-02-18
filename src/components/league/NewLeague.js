@@ -1,10 +1,6 @@
 import React, { useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
-// import AddPlayers from './AddPlayers';
 
 function NewLeague( { addNewLeague, exitForm, closeForm }){
-    // const params = useParams()
-    // const history = useHistory()
     const [name, setName] = useState("")
     const [notes, setNotes] = useState("")
     const [duration, setDuration] = useState()
@@ -45,6 +41,7 @@ function NewLeague( { addNewLeague, exitForm, closeForm }){
                     placeholder="League"
                     value={name}
                     onChange={e => setName(e.target.value)}
+                    required
                 />
                 </p>
                 <p><label>League Duration:</label>
@@ -62,11 +59,8 @@ function NewLeague( { addNewLeague, exitForm, closeForm }){
                     placeholder="The stakes are high..."
                     value={notes}
                     onChange={e => setNotes(e.target.value)}
+                    required
                 /></p>
-                {/* <p><label>Add players:</label></p>
-                <div className="add-players">
-                    <AddPlayers />
-                </div> */}
                 <button type="submit">Submit</button>
             </form>  
             </div>

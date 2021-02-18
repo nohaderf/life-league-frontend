@@ -3,15 +3,18 @@ import NavBar from './NavBar';
 import MainContainer from './MainContainer';
 import Footer from './Footer';
 import Header from './Header';
+// import { useDispatch } from 'react-redux';
 import '../App.css';
 
 function App() {
   const [users, setUsers] = useState([])
   const [currentUser, setCurrentUser] = useState(0)
+  const [avatar, setAvatar] = useState("")
   const [friends, setFriends] = useState([])
   const [notFriends, setNotFriends] = useState([])
   const [isUsersLoaded, setIsUsersLoaded] = useState(false)
   const [login, setLogin] = useState(false)
+  // const dispatch =  useDispatch()
 
   useEffect(() => {
     fetch(`${process.env.REACT_APP_API_BASE_URL}users/`)
@@ -26,10 +29,11 @@ function App() {
   }, [])
 
   // useEffect(() => {
-  //   if (users[0]) {
-        
+  //   if (currentUser) {
+  //     setAvatar(currentUser.image_url)
+  //     dispatch({type:"Avatar"})
   //   }
-  // }, [])
+  // }, [currentUser])
 
   if (!isUsersLoaded) return <h1>Loading Users...</h1>
 

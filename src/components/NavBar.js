@@ -1,15 +1,13 @@
-import React, { useContext, useState } from "react"
-import { NavLink , useHistory} from "react-router-dom";
+import React, { useState } from "react"
+import { NavLink } from "react-router-dom";
 import logo from '../images/logo.png';
-// import svg from '../images/life_league_logo.svg';
-
+import { useSelector } from 'react-redux';
 
 function NavBar({ currentUser, login, handleLogout }){
     const [navBar, setNavBar] = useState(false)
     const [showDropDown, setShowDropDown] = useState(false)
-
-    // const {loggedIn, toggle} = useContext(LoginContext)
-    // const history = useHistory()
+    
+    const imageUrl = useSelector(state => state.imageUrl)
 
     function changeBackground() {
         if (window.scrollY >= 20) {
@@ -35,7 +33,8 @@ function NavBar({ currentUser, login, handleLogout }){
         <nav className={navBar ? "nav-bar active" : "nav-bar"}>
             <div>
                 <div className="drop-down-profile">
-                <NavLink exact to="/profile"><img className="user-thumbnail" src={currentUser.image_url}></img></NavLink>
+                {/* <NavLink exact to="/profile"><img className="user-thumbnail" src={currentUser.image_url}></img></NavLink> */}
+                {/* <NavLink exact to="/profile"><img className="user-thumbnail" src={imageUrl}></img></NavLink> */}
                     <button className="drop-btn" onClick={handleDropDown}>
                         Hello, {currentUser.first_name}
                         <i className="fa fa-caret-down"></i>
