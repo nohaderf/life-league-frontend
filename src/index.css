@@ -870,6 +870,13 @@ textarea:focus, input:focus{
   color: white;
  }
 
+ .footer-div span {
+  text-transform: uppercase;
+  color: white;
+  font-family: 'Oswald', sans-serif;
+  font-size: 0.8em;
+ }
+
  .company-footer {
   text-transform: uppercase;
   color: white;
